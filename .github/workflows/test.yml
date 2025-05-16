@@ -1,10 +1,13 @@
-steps:
-  - uses: actions/checkout@v4
-  - name: Setup Python
-    run: |
-      echo "PATH=$PATH:/usr/local/bin" >> $GITHUB_ENV
-      python3 -m pip install --upgrade pip
-  - name: Install dependencies
-    run: pip3 install pytest flask
-  - name: Run tests
-    run: pytest test_app.py -v
+name: Run Tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          pip3 install pytest flask
+      - name: Run tests
+        run: pytest test_app.py -v
