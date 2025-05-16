@@ -1,0 +1,5 @@
+aspose-cells==24.6.0
+JPype1==1.5.0
+packaging==24.1
+psycopg2==2.9.9
+xlsxreader==0.2.0
